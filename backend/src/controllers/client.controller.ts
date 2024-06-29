@@ -109,7 +109,9 @@ export default class ClientController {
         try {
             const validatedData = req.body;
             const newCustomer = await this.clientService.createClient(validatedData);
+            console.log('newCustomer', newCustomer)
             res.status(201).json({
+                message: 'Cadastro realizado com sucesso',
                 user: newCustomer,
             });
         } catch (e: unknown) {

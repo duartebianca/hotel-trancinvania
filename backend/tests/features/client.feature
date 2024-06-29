@@ -5,8 +5,9 @@ Feature: Cadastro de Clientes
 
   Scenario: Cadastro Bem-Sucedido de Usuário Cliente
     Given que eu sou um novo usuário
-    When eu envio uma solicitação de cadastro com o nome "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
+    When eu envio uma requisição POST para '/client/create' com o name "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
     Then o cadastro deve ser realizado com sucesso
+    And o status da resposta deve ser "201"
     And eu devo receber uma mensagem de confirmação:
     """
     {
@@ -25,29 +26,29 @@ Feature: Cadastro de Clientes
 
   Scenario: Cadastro Mal-Sucedido de Usuário Cliente por E-mail já Cadastrado
     Given que o e-mail "barbara.alencar@gmail.com" já está cadastrado
-    When eu envio uma solicitação de cadastro com o nome "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
+    When eu envio uma requisição POST para '/client/create' com o name "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
     Then o cadastro não deve ser realizado
     And eu devo receber uma mensagem de erro indicando que o e-mail já está em uso:
     """
     {
-      "error": "E-mail ou nome de usuário já existe."
+      "error": "E-mail ou name de usuário já existe."
     }
     """
 
   Scenario: Cadastro Mal-Sucedido de Usuário Cliente por Usuário já Cadastrado
-    Given que o nome de usuário "barbaralencar" já está cadastrado
-    When eu envio uma solicitação de cadastro com o nome "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
+    Given que o name de usuário "barbaralencar" já está cadastrado
+    When eu envio uma solicitação de cadastro com o name "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@AmoBolo123"
     Then o cadastro não deve ser realizado
-    And eu devo receber uma mensagem de erro indicando que o nome de usuário já está em uso:
+    And eu devo receber uma mensagem de erro indicando que o name de usuário já está em uso:
     """
     {
-      "error": "E-mail ou nome de usuário já existe."
+      "error": "E-mail ou name de usuário já existe."
     }
     """
 
   Scenario: Cadastro Mal-Sucedido de Usuário Cliente por Senha Inválida
     Given que eu sou um novo usuário
-    When eu envio uma solicitação de cadastro com o nome "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@Amo"
+    When eu envio uma requisição POST para '/client/create' com o name "Bárbara Alencar", email "barbara.alencar@gmail.com", username "barbaralencar", cpf "021.957.235-12", phone "(81) 99342-3591", birthDate "1984/09/12" e password "@Amo"
     Then o cadastro não deve ser realizado
     And eu devo receber uma mensagem de erro indicando que a senha é inválida:
     """

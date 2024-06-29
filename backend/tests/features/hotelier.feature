@@ -16,7 +16,7 @@ So that eu possa realizar ações no sistema de acordo com meu tipo de usuário
         "name": "Mavis",
         "email": "mavis.dracula@gmail.com",
         "username": "mavis",
-        "password": "@Vampiresca1",
+        "password": "#is_placeholder",
         "hotel": "Hotel Transilvânia",
         "adress": "Rua das Sextas, 13",
         "cnpj": "12.215.333/0001-33"

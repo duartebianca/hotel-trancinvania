@@ -13,7 +13,7 @@ export default class ClientService {
     }
 
     async createClient(data: any) {
-        // Check if email or username already exists
+        // Checa se o email ou nome de usuário já existe
         const existingClient = await this.clientRepository.findClientByEmailOrUsername(
             data.email,
             data.username,
@@ -22,14 +22,15 @@ export default class ClientService {
             throw new HttpConflictError({msg: 'E-mail ou nome de usuário já existe.'});
         }
 
-        // Hash the password
+        // Criptografa a senha
         const hashedPassword = await bcrypt.hash(data.password, 10);
 
-        // Create the client
+        // Cria o Cliente
         const newClient = await this.clientRepository.createClient({
             ...data,
             password: hashedPassword,
         });
+        console.log('newClient on service', newClient);
         return newClient;
     }
 

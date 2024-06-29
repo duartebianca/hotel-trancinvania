@@ -44,7 +44,7 @@ defineFeature(feature, (test) => {
       });
 
       then('eu devo receber uma mensagem de confirmação:', (expectedResponse) => {
-          const expected = JSON.parse(expectedResponse);
+        //   const expected = JSON.parse(expectedResponse);
           expect(response.body.user).toMatchObject({
               id: mockHotelierData.id,
               name: payload.name,
