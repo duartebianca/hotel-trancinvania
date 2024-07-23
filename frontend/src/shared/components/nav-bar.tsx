@@ -208,7 +208,7 @@ export const NavBar: React.FC = () => {
               onClick={onClose}
             >
               <FaSpider style={{ marginRight: "6px" }} />
-              <Text>InÃ­cio</Text>
+              <Text>Início</Text>
             </Link>
 
             <Box mb={4}>
