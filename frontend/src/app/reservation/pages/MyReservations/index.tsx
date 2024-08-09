@@ -81,7 +81,7 @@ const MyReservations: React.FC = () => {
             const status = getStatus(reservation.checkin, reservation.checkout);
             const statusColor = getStatusColor(status);
             return (
-              <Box key={reservation.id} position="relative" w="300px" h="330px" _hover={{ transform: 'translateY(-5px)' }}>
+              <Box key={reservation.id} position="relative" w="296px" h="330px" _hover={{ transform: 'translateY(-5px)' }}>
                 <Box position="relative" w="296px" h="330px" bg="transparent" borderRadius="10px" overflow="hidden" color="#191919" cursor="pointer" onClick={() => navigate(`/see-reservation/${reservation.id}`)}>
                   <Box w="100%" h="72%" backgroundSize="cover" backgroundPosition="center" borderBottomLeftRadius="10px" borderBottomRightRadius="10px" style={{ backgroundImage: `url(http://localhost:5001${publishedReservation.imageUrl})` }}></Box>
                   <Box fontSize="20px" color="#eaeaea" textAlign="start" fontWeight="bold">{publishedReservation.name}</Box>

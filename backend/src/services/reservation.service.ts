@@ -17,16 +17,7 @@ export default class ReservationService {
 
 
     private async prepareReservationParams(num_rooms: number, checkin: string, checkout: string, num_adults: number, num_children: number, paymentMethodName: string, publishedReservationId: number, clientId: number): Promise<Reserve> {
-        // console.log(`Received parameters2:`, {
-        //     num_rooms,
-        //     checkin,
-        //     checkout,
-        //     num_adults,
-        //     num_children,
-        //     paymentMethodName,
-        //     publishedReservationId,
-        //     clientId
-        // });
+       
         if (!num_rooms || !checkin || !checkout || !num_adults || !paymentMethodName) {
             throw new HttpBadRequestError({msg: 'Preencha todos os campos'});
         }

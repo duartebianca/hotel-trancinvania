@@ -6,12 +6,13 @@ export const JustSpider: React.FC = () => {
       src={Spider}
       alt="Top Right"
       position="absolute"
-      top="0px" // Adjust this value to be below the navbar
+      top="0px" 
       right="0"
       zIndex="0"
-      display={{ base: "none", md: "block" }} // Hide on mobile, show on desktop
-      transform="scale(0.8)" // Scale down to half size
-      transformOrigin="top right" // Scale from the top right corner
+      display={{ base: "none", md: "block" }} 
+      transform="scale(0.8)" 
+      transformOrigin="top right" 
     /> 
 );
 };
+

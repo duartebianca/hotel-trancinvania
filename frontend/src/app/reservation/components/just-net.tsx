@@ -10,9 +10,11 @@ export const JustNet: React.FC = () => {
           bottom="0"
           left="0"
           zIndex="0"
-          display={{ base: "none", md: "block" }} // Hide on mobile, show on desktop
-          transform="scale(0.75)" // Scale down to half size
-          transformOrigin="bottom left" // Scale from the bottom left corner
+          display={{ base: "none", md: "block" }} 
+          transform="scale(0.75)" 
+          transformOrigin="bottom left" 
         />      
     );
   };
+
+  

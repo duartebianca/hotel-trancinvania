@@ -50,7 +50,9 @@ When('eu seleciono {string}', (button: string) => {
 })
 
 When('eu seleciono o pagamento {string}', (card: string) => {
+    cy.wait(3000);
     cy.get('.css-b62m3t-container').click();
+    cy.wait(3000);
     cy.contains('**** **** **** 1111').should('be.visible').click();
 })
 
